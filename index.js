@@ -62,7 +62,7 @@ function generateHTML(data) {
         <div class="card-body">
           <ul class="list-unstyled mt-3 mb-4">
             <li>${data.id}</li>
-            <li><a href="mailto:${data.email}"></a></li>       
+            <li><a href="mailto:${data.email}">${data.email}</a></li>      
             <li>${data.officeNumber}</li>
           </ul>
         </div>
