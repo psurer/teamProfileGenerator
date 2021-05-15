@@ -1,6 +1,9 @@
 // Includes packages needed for this app
+// const { listenerCount } = require('events');
 const fs = require('fs');
 const inquirer = require('inquirer');
+const employee = require('./lib/Employee.js');
+const Engineer = require('./lib/Engineer.js');
 
 // team manager’s name, employee ID, email address, and office number
 // array of questions that require user input
@@ -26,7 +29,21 @@ const questions = [
         message: "Enter your office number."
     }
 ];
-
+// allows user to select team 
+function createTeam() {
+  inquirer.prompt([
+    {
+      type: "list",
+      name: "teamRole",
+      message: "Who would you like to add to your team?",
+      choices: [
+        "Engineer",
+        "intern",
+        "I do not wish to add any more to my team"
+      ]
+    }
+  ]);
+}
 // TODO: Create a function to initialize app
 function init() {
     //inquirer is a object, 
@@ -73,6 +90,5 @@ function generateHTML(data) {
 </html>`;
 return html;
 }
-  
-// Function call to initialize app
+
 init();
